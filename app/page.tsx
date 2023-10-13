@@ -222,7 +222,7 @@ export default function Home() {
                 Shareable Story Videos
               </h3>
               <p className="text-lg">
-                Convert children's unique stories into videos with pixel art and
+                Convert children&apos;s unique stories into videos with pixel art and
                 text-to-speech, providing a URL for easy sharing and preserving
                 memorable experiences.
               </p>
