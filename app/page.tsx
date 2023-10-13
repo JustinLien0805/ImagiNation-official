@@ -4,7 +4,7 @@ import BurgerButton from "@/components/ui/BurgerButton";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useState, useRef } from "react";
-
+import { galleryData } from "@/lib/gallery";
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const heroRef = useRef(null);
@@ -222,9 +222,9 @@ export default function Home() {
                 Shareable Story Videos
               </h3>
               <p className="text-lg">
-                Convert children&apos;s unique stories into videos with pixel art and
-                text-to-speech, providing a URL for easy sharing and preserving
-                memorable experiences.
+                Convert children&apos;s unique stories into videos with pixel
+                art and text-to-speech, providing a URL for easy sharing and
+                preserving memorable experiences.
               </p>
             </div>
             <div>
@@ -245,6 +245,40 @@ export default function Home() {
                 experiences.
               </p>
             </div>
+          </div>
+        </section>
+        <section className="min-h-screen flex flex-col items-center w-screen bg-[#f6e0c1] pt-40 gap-8">
+          <div className="flex flex-col gap-4 items-center">
+            <h2 className="text-4xl font-semibold px-2 tracking-wide underline underline-offset-4 decoration-[#1177F7]">
+              Gallery
+            </h2>
+            <h3 className="text-xl font-normal tracking-wide text-[#363636] text-center px-2">
+              Turn the page to pixel: where school content becomes a digital
+              adventure.
+            </h3>
+          </div>
+          <div className="grid w-full p-4 max-w-5xl md:grid-cols-5 grid-cols-3 gap-8">
+            {galleryData.map((item, index) => (
+              <div
+                className={`relative w-full group aspect-square bg-[#E0218C] overflow-hidden  rounded-lg ${
+                  index === 0 || index === 15 ? "col-span-2 row-span-2" : ""
+                }`}
+                key={index}
+              >
+                <div className="hidden group-hover:flex text-white bg-black/50 w-full h-full flex-col absolute bottom-0 left-0 p-2 z-10 justify-end">
+                  <h3 className="text-lg font-semibold tracking-tight pt-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-lg">{item.type}</p>
+                </div>
+                <Image
+                  src={item.url}
+                  fill
+                  alt="feature"
+                  className="rounded-lg group-hover:scale-110 transition ease-in duration-300 object-cover"
+                />
+              </div>
+            ))}
           </div>
         </section>
       </main>
