@@ -40,15 +40,15 @@ export default function Home() {
             </nav>
           </div>
           <Button className="sm:block hidden" asChild>
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() =>
-                (window.location.href = "https://imagicnation.vercel.app/")
-              }
+              href="https://imagicnation.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Start Imagine
-            </motion.button>
+            </motion.a>
           </Button>
           <BurgerButton isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
@@ -69,15 +69,15 @@ export default function Home() {
           </div>
           <div className="border-b p-8 font-medium text-center text-xl w-full">
             <Button className="w-48 self-center text-xl h-16 z-10" asChild>
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() =>
-                  (window.location.href = "https://imagicnation.vercel.app/")
-                }
+                href="https://imagicnation.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Start Imagine
-              </motion.button>
+              </motion.a>
             </Button>
           </div>
         </motion.div>
@@ -116,19 +116,19 @@ export default function Home() {
             narratives.
           </motion.h2>
           <Button className="w-48 self-center text-xl h-16 z-10" asChild>
-            <motion.button
+            <motion.a
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={fadeInVariants}
               transition={{ delay: 0.15, duration: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() =>
-                (window.location.href = "https://imagicnation.vercel.app/")
-              }
+              href="https://imagicnation.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Start Imagine
-            </motion.button>
+            </motion.a>
           </Button>
           <motion.div
             className="absolute -bottom-16 sm:-bottom-32 md:-bottom-48 lg:-bottom-56 w-[95%] px-4 aspect-video max-w-5xl"
@@ -260,7 +260,7 @@ export default function Home() {
           <div className="grid w-full p-4 max-w-5xl md:grid-cols-5 grid-cols-3 gap-8">
             {galleryData.map((item, index) => (
               <div
-                className={`relative w-full group aspect-square bg-[#E0218C] overflow-hidden  rounded-lg ${
+                className={`relative w-full group aspect-square bg-[#f6e0c1] overflow-hidden  rounded-lg ${
                   index === 0 || index === 15 ? "col-span-2 row-span-2" : ""
                 }`}
                 key={index}
