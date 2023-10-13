@@ -16,11 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <header>
+      <head>
         <title>ImagicNation</title>
         <meta name="description" content="ImagicNation" />
         <link rel="icon" href="/favicon.ico" />
-      </header>
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );

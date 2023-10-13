@@ -43,6 +43,9 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() =>
+                (window.location.href = "https://imagicnation.vercel.app/")
+              }
             >
               Start Imagine
             </motion.button>
@@ -69,6 +72,9 @@ export default function Home() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() =>
+                  (window.location.href = "https://imagicnation.vercel.app/")
+                }
               >
                 Start Imagine
               </motion.button>
@@ -117,6 +123,9 @@ export default function Home() {
               transition={{ delay: 0.15, duration: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() =>
+                (window.location.href = "https://imagicnation.vercel.app/")
+              }
             >
               Start Imagine
             </motion.button>
@@ -128,11 +137,12 @@ export default function Home() {
             variants={fadeInVariants}
             transition={{ delay: 0.2, duration: 0.4 }}
           >
-            <Image
-              src="/hero.png"
-              alt="hero"
-              fill
-              priority
+            <video
+              src="/hero.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
               className="rounded-lg"
             />
           </motion.div>
@@ -215,6 +225,24 @@ export default function Home() {
                 Convert children's unique stories into videos with pixel art and
                 text-to-speech, providing a URL for easy sharing and preserving
                 memorable experiences.
+              </p>
+            </div>
+            <div>
+              <div className="relative w-full aspect-[4/3]">
+                <Image
+                  src="/feature_5.png"
+                  fill
+                  alt="feature"
+                  className="rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-semibold tracking-tight pt-4">
+                Ethic Story Section
+              </h3>
+              <p className="text-lg">
+                A dedicated section for ethics allows users to explore multiple
+                endings to ethical scenarios, offering diversified learning
+                experiences.
               </p>
             </div>
           </div>
