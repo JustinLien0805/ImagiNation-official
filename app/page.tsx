@@ -1,113 +1,232 @@
-import Image from 'next/image'
+"use client";
+import { Button } from "@/components/ui/button";
+import BurgerButton from "@/components/ui/BurgerButton";
+import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import { useState, useRef } from "react";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+  const [isOpen, setIsOpen] = useState(false);
+  const heroRef = useRef(null);
+  const isInView = useInView(heroRef, {
+    once: true,
+  });
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+  const variants = {
+    open: { opacity: 1, y: 0, zIndex: 50 },
+    closed: { opacity: 0, y: 0, zIndex: -1 },
+  };
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+  return (
+    <>
+      <main className="flex reletive min-h-screen overflow-x-hidden flex-col items-center bg-[#fafafa]">
+        <div className="flex drop-shadow-xl bg-[#fafafa] z-50 justify-between w-full fixed top-0 h-16 items-center p-4 border-b">
+          <div className="flex items-center gap-4">
+            <h1 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] via-[#E0218C] to-[#1177F7]">
+              ImagicNation
+            </h1>
+            <nav className="sm:block hidden">
+              <ul className="flex gap-4 font-medium text-xl">
+                <li>
+                  <a href="/contact">Pricing</a>
+                </li>
+                <li>
+                  <a href="/about">About Us</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <Button className="sm:block hidden" asChild>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start Imagine
+            </motion.button>
+          </Button>
+          <BurgerButton isOpen={isOpen} setIsOpen={setIsOpen} />
+        </div>
+        <motion.div
+          className={`${
+            isOpen ? "flex" : "hidden"
+          } bg-[#fafafa] drop-shadow-xl flex-col w-full fixed top-16`}
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          variants={variants}
+          transition={{ duration: 0.2 }}
+        >
+          <div className="border-b p-8 text-center text-xl font-medium w-full">
+            Pricing
+          </div>
+          <div className="border-b p-8 text-center text-xl font-medium w-full">
+            About Us
+          </div>
+          <div className="border-b p-8 font-medium text-center text-xl w-full">
+            <Button className="w-48 self-center text-xl h-16 z-10" asChild>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Start Imagine
+              </motion.button>
+            </Button>
+          </div>
+        </motion.div>
+        <section
+          className="max-w-5xl sm:px-8 flex flex-col gap-5 w-screen h-screen relative pt-36 items-center z-10"
+          ref={heroRef}
+        >
+          <motion.h1
+            className="sm:text-6xl text-4xl font-extrabold tracking-wide leading-tight text-center max-w-3xl px-2"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeInVariants}
+            transition={{ duration: 0.4 }}
+          >
+            Textbooks Reimagined:{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] to-[#F2BA34]">
+              Play
+            </span>
+            {", "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#790FD0] to-[#E0218C]">
+              Create
+            </span>
+            {", "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1177F7] to-[#00D2E6]">
+              Learn
+            </span>
+          </motion.h1>
+          <motion.h2
+            className="sm:text-3xl text-xl font-normal tracking-wide max-w-2xl text-center px-2"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeInVariants}
+            transition={{ delay: 0.1, duration: 0.4 }}
+          >
+            Revolutionizing primary education through interactive pixel art
+            narratives.
+          </motion.h2>
+          <Button className="w-48 self-center text-xl h-16 z-10" asChild>
+            <motion.button
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={fadeInVariants}
+              transition={{ delay: 0.15, duration: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start Imagine
+            </motion.button>
+          </Button>
+          <motion.div
+            className="absolute -bottom-16 sm:-bottom-32 md:-bottom-48 lg:-bottom-56 w-[95%] px-4 aspect-video max-w-5xl"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeInVariants}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          >
+            <Image
+              src="/hero.png"
+              alt="hero"
+              fill
+              priority
+              className="rounded-lg"
+            />
+          </motion.div>
+        </section>
+        <section className="min-h-screen flex flex-col items-center w-screen bg-[#f6e0c1] pt-40 sm:pt-96 gap-8">
+          <div className="flex flex-col gap-4 items-center">
+            <h2 className="text-4xl font-semibold px-2 tracking-wide underline underline-offset-4 decoration-[#FD513F]">
+              Powerful Features
+            </h2>
+            <h3 className="text-xl font-normal tracking-wide text-[#363636] px-2">
+              Features built to let Stories and Studies Merge.
+            </h3>
+          </div>
+          <div className="grid w-full p-4 max-w-5xl sm:grid-cols-2 gap-8">
+            <div>
+              <div className="relative w-full aspect-[4/3]">
+                <Image
+                  src="/feature_1.png"
+                  fill
+                  alt="feature"
+                  className="rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-semibold tracking-tight pt-4">
+                Engaging Learning Experience
+              </h3>
+              <p className="text-lg">
+                Children can mold their learning journey by creating their own
+                stories, ensuring they are actively involved and invested in the
+                learning process
+              </p>
+            </div>
+            <div>
+              <div className="relative w-full aspect-[4/3]">
+                <Image
+                  src="/feature_2.png"
+                  fill
+                  alt="feature"
+                  className="rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-semibold tracking-tight pt-4">
+                Instant Feedback
+              </h3>
+              <p className="text-lg">
+                Highlighted words and phrases offer immediate explanations,
+                reinforcing vocabulary and concept understanding.
+              </p>
+            </div>
+            <div>
+              <div className="relative w-full aspect-[4/3]">
+                <Image
+                  src="/feature_3.png"
+                  fill
+                  alt="feature"
+                  className="rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-semibold tracking-tight pt-4">
+                Complete Curriculum Coverage
+              </h3>
+              <p className="text-lg">
+                By blending textbook words and phrases into user-generated
+                stories, children naturally learn and retain textbook content.
+              </p>
+            </div>
+            <div>
+              <div className="relative w-full aspect-[4/3]">
+                <Image
+                  src="/feature_4.png"
+                  fill
+                  alt="feature"
+                  className="rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-semibold tracking-tight pt-4">
+                Shareable Story Videos
+              </h3>
+              <p className="text-lg">
+                Convert children's unique stories into videos with pixel art and
+                text-to-speech, providing a URL for easy sharing and preserving
+                memorable experiences.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div className="absolute w-screen h-screen top-0 left-0">
+        <img
+          src="/wave.svg"
+          alt="wave"
+          className={`absolute bottom-0 left-0 w-screen min-h-[30%] object-cover`}
         />
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </>
+  );
 }
