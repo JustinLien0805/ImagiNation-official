@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 export default function Component() {
   return (
-    <section className="min-h-screen w-full bg-[#fafafa] flex items-center justify-center pb-12 pt-36">
+    <section className="mb-auto w-full bg-[#fafafa] flex items-center justify-center pb-12 pt-36 2xl:pt-72">
       <div className="flex flex-col justify-center items-center px-4 md:px-6">
         <h2 className="text-4xl font-semibold px-2 tracking-wide underline text-center underline-offset-4 decoration-[#F2BA34]">
           Pricing
         </h2>
-        <div className="flex flex-col gap-6 mt-8 md:flex-row md:gap-8 max-w-5xl">
+        <div className="flex flex-col gap-6 mt-8 md:flex-row md:gap-8 max-w-7xl">
           <div className="flex flex-col p-6 bg-white shadow-lg rounded-lg justify-between border border-gray-300 max-w-2xl">
             <div>
               <h3 className="text-2xl font-bold text-center">Free</h3>

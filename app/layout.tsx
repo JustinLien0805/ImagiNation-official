@@ -24,7 +24,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Analytics />
-        <main className="flex reletive min-h-screen overflow-x-hidden flex-col items-center bg-[#fafafa]">
+        <main className="flex reletive min-h-screen max-w-[100vw] overflow-x-hidden flex-col items-center bg-[#fafafa]">
           {children}
           <footer className="flex flex-col items-center w-screen bg-[#f6e0c1] p-10 gap-4">
             <h2 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] via-[#E0218C] to-[#1177F7]">
