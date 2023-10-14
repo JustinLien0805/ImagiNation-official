@@ -115,7 +115,7 @@ export default function Home() {
         </div>
       </motion.div>
       <section
-        className="max-w-7xl sm:px-8 flex flex-col gap-5 w-screen h-screen relative pt-36 xl:pt-72 2xl:pt-96 items-center z-10"
+        className="max-w-7xl sm:px-8 flex flex-col gap-5 w-screen min-h-screen pt-36 xl:pt-72 items-center z-10"
         ref={heroRef}
       >
         <motion.h1
@@ -150,7 +150,7 @@ export default function Home() {
         </motion.h2>
         <CallToAction fadeInVariants={fadeInVariants} isInView={isInView} />
         <motion.div
-          className="absolute -bottom-16 sm:-bottom-32 md:-bottom-48 lg:-bottom-60  w-[95%] px-4 aspect-video max-w-7xl z-0"
+          className="w-full px-4 aspect-video max-w-7xl z-0 pt-20"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInVariants}
@@ -167,18 +167,18 @@ export default function Home() {
           />
         </motion.div>
       </section>
-      <section className="min-h-screen flex flex-col items-center w-screen bg-[#f6e0c1] pt-40 sm:pt-96 gap-8">
+      <section className="min-h-screen flex flex-col items-center w-screen bg-[#fafafa] py-40 gap-8">
         <div className="flex flex-col gap-4 items-center">
-          <h2 className="text-4xl font-semibold px-2 tracking-wide underline underline-offset-4 decoration-[#FD513F]">
+          <h2 className="text-4xl font-semibold px-2 tracking-wide text-center underline underline-offset-4 decoration-[#FD513F]">
             Powerful Features
           </h2>
-          <h3 className="text-xl font-normal tracking-wide text-[#363636] px-2">
+          <h3 className="text-xl font-normal tracking-wide text-[#363636] px-2 text-center">
             Features built to let Stories and Studies Merge.
           </h3>
         </div>
         <div className="grid w-full p-4 max-w-7xl sm:grid-cols-2 gap-8">
           <div>
-            <div className="relative w-full aspect-[4/3]">
+            <div className="relative w-full aspect-[4/3] drop-shadow-lg">
               <Image
                 src="/feature_1.webp"
                 fill
@@ -197,7 +197,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <div className="relative w-full aspect-[4/3]">
+            <div className="relative w-full aspect-[4/3] drop-shadow-lg">
               <Image
                 src="/feature_2.webp"
                 fill
@@ -215,7 +215,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <div className="relative w-full aspect-[4/3]">
+            <div className="relative w-full aspect-[4/3] drop-shadow-lg">
               <Image
                 src="/feature_3.webp"
                 fill
@@ -233,7 +233,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <div className="relative w-full aspect-[4/3]">
+            <div className="relative w-full aspect-[4/3] drop-shadow-lg">
               <Image
                 src="/feature_4.webp"
                 fill
@@ -252,7 +252,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <div className="relative w-full aspect-[4/3]">
+            <div className="relative w-full aspect-[4/3] drop-shadow-lg">
               <Image
                 src="/feature_5.webp"
                 fill
@@ -285,12 +285,12 @@ export default function Home() {
         <div className="grid w-full p-4 max-w-7xl md:grid-cols-5 grid-cols-3 gap-8">
           {galleryData.map((item, index) => (
             <div
-              className={`relative w-full group aspect-square bg-[#f6e0c1] overflow-hidden  rounded-lg ${
+              className={`relative w-full group aspect-square bg-[#f6e0c1] overflow-hidden rounded-lg ${
                 index === 0 || index === 15 ? "col-span-2 row-span-2" : ""
               }`}
               key={index}
             >
-              <div className="hidden group-hover:flex text-white bg-black/50 w-full h-full flex-col absolute bottom-0 left-0 p-2 z-10 justify-end">
+              <div className="hidden group-hover:flex text-white bg-black/50 rounded-lg w-full h-full flex-col absolute bottom-0 left-0 p-2 z-10 justify-end">
                 <h3 className="text-lg font-semibold tracking-tight pt-4">
                   {item.title}
                 </h3>
@@ -303,7 +303,7 @@ export default function Home() {
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8oNjzHwAGBAKOvdbtWwAAAABJRU5ErkJggg=="
                 alt="feature"
-                className="rounded-lg group-hover:scale-110 transition ease-in duration-300 object-cover"
+                className="rounded-lg sm:group-hover:scale-110 transition ease-in duration-300 object-cover"
               />
             </div>
           ))}
@@ -372,7 +372,7 @@ export default function Home() {
         <img
           src="/wave.svg"
           alt="wave"
-          className={`absolute bottom-0 left-0 w-screen min-h-[30%] object-cover`}
+          className={`absolute bottom-0 left-0 w-screen min-h-[50%] object-cover`}
         />
       </div>
     </>

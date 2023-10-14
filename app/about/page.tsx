@@ -124,7 +124,7 @@ const About = () => {
               placeholder="blur"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8oNjzHwAGBAKOvdbtWwAAAABJRU5ErkJggg=="
               alt="feature"
-              className="rounded-lg group-hover:scale-110 transition ease-in duration-300 object-contain"
+              className="rounded-lg sm:group-hover:scale-110 transition ease-in duration-300 object-contain"
             />
           </div>
         </div>
