@@ -1,6 +1,13 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import BurgerButton from "@/components/ui/BurgerButton";
+import CallToAction from "@/components/ui/callToAction";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useState, useRef } from "react";
@@ -31,25 +38,43 @@ export default function Home() {
             <nav className="sm:block hidden">
               <ul className="flex gap-4 font-medium text-xl">
                 <li>
-                  <a href="/contact">Pricing</a>
+                  <a
+                    href="/pricing"
+                    className="hover:text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] to-[#F2BA34]"
+                  >
+                    Pricing
+                  </a>
                 </li>
                 <li>
-                  <a href="/about">About Us</a>
+                  <a
+                    href="/about"
+                    className="hover:text-transparent bg-clip-text bg-gradient-to-r from-[#790FD0] to-[#E0218C]"
+                  >
+                    About
+                  </a>
                 </li>
               </ul>
             </nav>
           </div>
-          <Button className="sm:block hidden" asChild>
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="https://imagicnation.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+          <motion.div
+            className="relative sm:flex hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button
+              className="z-10 relative border-transparent rounded-lg"
+              asChild
             >
-              Start Imagine
-            </motion.a>
-          </Button>
+              <a
+                href="https://imagicnation.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Start Imagine
+              </a>
+            </Button>
+            <div className="absolute -z-20 border-transparent w-[calc(100%+4px)] h-[calc(100%+4px)] box-content -top-1 -left-1 rounded-xl border-2 bg-gradient-to-r from-[#FD513F] via-[#E0218C] to-[#1177F7] bg-clip-padding"></div>
+          </motion.div>
           <BurgerButton isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
         <motion.div
@@ -62,23 +87,23 @@ export default function Home() {
           transition={{ duration: 0.2 }}
         >
           <div className="border-b p-8 text-center text-xl font-medium w-full">
-            Pricing
+            <a
+              href="/pricing"
+              className="hover:text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] to-[#F2BA34]"
+            >
+              Pricing
+            </a>
           </div>
           <div className="border-b p-8 text-center text-xl font-medium w-full">
-            About Us
+            <a
+              href="/about"
+              className="hover:text-transparent bg-clip-text bg-gradient-to-r from-[#790FD0] to-[#E0218C]"
+            >
+              About
+            </a>
           </div>
-          <div className="border-b p-8 font-medium text-center text-xl w-full">
-            <Button className="w-48 self-center text-xl h-16 z-10" asChild>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://imagicnation.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Start Imagine
-              </motion.a>
-            </Button>
+          <div className="border-b p-8 font-medium flex justify-center text-xl w-full">
+            <CallToAction fadeInVariants={fadeInVariants} isInView={isInView} />
           </div>
         </motion.div>
         <section
@@ -86,7 +111,7 @@ export default function Home() {
           ref={heroRef}
         >
           <motion.h1
-            className="sm:text-6xl text-4xl font-extrabold tracking-wide leading-tight text-center max-w-3xl px-2"
+            className="sm:text-6xl xs:text-5xl text-4xl font-extrabold tracking-wide leading-tight text-center max-w-3xl px-2"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={fadeInVariants}
@@ -106,7 +131,7 @@ export default function Home() {
             </span>
           </motion.h1>
           <motion.h2
-            className="sm:text-3xl text-xl font-normal tracking-wide max-w-2xl text-center px-2"
+            className="sm:text-3xl xs:text-2xl text-xl font-normal tracking-wide max-w-2xl text-center px-2"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={fadeInVariants}
@@ -115,23 +140,9 @@ export default function Home() {
             Revolutionizing primary education through interactive pixel art
             narratives.
           </motion.h2>
-          <Button className="w-48 self-center text-xl h-16 z-10" asChild>
-            <motion.a
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              variants={fadeInVariants}
-              transition={{ delay: 0.15, duration: 0.4 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="https://imagicnation.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Start Imagine
-            </motion.a>
-          </Button>
+          <CallToAction fadeInVariants={fadeInVariants} isInView={isInView} />
           <motion.div
-            className="absolute -bottom-16 sm:-bottom-32 md:-bottom-48 lg:-bottom-56 w-[95%] px-4 aspect-video max-w-5xl"
+            className="absolute -bottom-16 sm:-bottom-32 md:-bottom-48 lg:-bottom-60  w-[95%] px-4 aspect-video max-w-5xl"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={fadeInVariants}
@@ -160,8 +171,9 @@ export default function Home() {
             <div>
               <div className="relative w-full aspect-[4/3]">
                 <Image
-                  src="/feature_1.png"
+                  src="/feature_1.webp"
                   fill
+                  sizes="100%"
                   alt="feature"
                   className="rounded-lg"
                 />
@@ -178,8 +190,9 @@ export default function Home() {
             <div>
               <div className="relative w-full aspect-[4/3]">
                 <Image
-                  src="/feature_2.png"
+                  src="/feature_2.webp"
                   fill
+                  sizes="100%"
                   alt="feature"
                   className="rounded-lg"
                 />
@@ -195,8 +208,9 @@ export default function Home() {
             <div>
               <div className="relative w-full aspect-[4/3]">
                 <Image
-                  src="/feature_3.png"
+                  src="/feature_3.webp"
                   fill
+                  sizes="100%"
                   alt="feature"
                   className="rounded-lg"
                 />
@@ -212,8 +226,9 @@ export default function Home() {
             <div>
               <div className="relative w-full aspect-[4/3]">
                 <Image
-                  src="/feature_4.png"
+                  src="/feature_4.webp"
                   fill
+                  sizes="100%"
                   alt="feature"
                   className="rounded-lg"
                 />
@@ -230,8 +245,9 @@ export default function Home() {
             <div>
               <div className="relative w-full aspect-[4/3]">
                 <Image
-                  src="/feature_5.png"
+                  src="/feature_5.webp"
                   fill
+                  sizes="100%"
                   alt="feature"
                   className="rounded-lg"
                 />
@@ -247,7 +263,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="min-h-screen flex flex-col items-center w-screen bg-[#f6e0c1] pt-40 gap-8">
+        <section className="min-h-screen flex flex-col items-center w-screen bg-[#f6e0c1] py-40 gap-8">
           <div className="flex flex-col gap-4 items-center">
             <h2 className="text-4xl font-semibold px-2 tracking-wide underline underline-offset-4 decoration-[#1177F7]">
               Gallery
@@ -274,12 +290,74 @@ export default function Home() {
                 <Image
                   src={item.url}
                   fill
+                  sizes="100%"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8oNjzHwAGBAKOvdbtWwAAAABJRU5ErkJggg=="
                   alt="feature"
                   className="rounded-lg group-hover:scale-110 transition ease-in duration-300 object-cover"
                 />
               </div>
             ))}
           </div>
+        </section>
+        <section className="flex flex-col items-center w-screen bg-[#fafafa] py-40 gap-8 p-4 max-w-5xl">
+          <h2 className="text-4xl font-semibold px-2 tracking-wide underline text-center underline-offset-4 decoration-[#790FD0]">
+            FAQs
+          </h2>
+          <Accordion type="single" collapsible className="sm:w-2/3 w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-xl text-left">
+                Is it available for mobile?
+              </AccordionTrigger>
+              <AccordionContent className="text-lg">
+                No, it is only available for desktop for now.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-left text-xl">
+                How does the video generation feature work?
+              </AccordionTrigger>
+              <AccordionContent className="text-lg">
+                Once a child completes their unique story, our platform
+                seamlessly combines pixel art visuals and text-to-speech
+                narration to create a video. After processing, a URL is
+                provided, making it easy for the child to share their
+                masterpiece with friends and family.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-left text-xl">
+                Are there any options for children who may not want to create a
+                story from scratch?
+              </AccordionTrigger>
+              <AccordionContent className="text-lg">
+                Yes! For those seeking guidance, we provide prewritten ethical
+                stories with multiple endings. Children simply choose from four
+                options, maintaining engagement and control over the narrative.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-left text-xl">
+                How does the platform ensure that the generated stories align
+                with textbook content?
+              </AccordionTrigger>
+              <AccordionContent className="text-lg">
+                Imagicnation's AI integrates content from three major publishers
+                into stories, ensuring they align with curriculum standards.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-5">
+              <AccordionTrigger className="text-left text-xl">
+                What if my child encounters a word or phrase they don't
+                understand in their story?
+              </AccordionTrigger>
+              <AccordionContent className="text-lg">
+                Words from the textbook are highlighted in stories; children can
+                click them for instant explanations, enhancing interactivity and
+                comprehension.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </section>
       </main>
       <div className="absolute w-screen h-screen top-0 left-0">
