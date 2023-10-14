@@ -342,13 +342,13 @@ export default function Home() {
                 with textbook content?
               </AccordionTrigger>
               <AccordionContent className="text-lg">
-                Imagicnation's AI integrates content from three major publishers
+                Imagicnation&apos;s AI integrates content from three major publishers
                 into stories, ensuring they align with curriculum standards.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-5">
               <AccordionTrigger className="text-left text-xl">
-                What if my child encounters a word or phrase they don't
+                What if my child encounters a word or phrase they don&apos;t
                 understand in their story?
               </AccordionTrigger>
               <AccordionContent className="text-lg">
