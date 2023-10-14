@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import BurgerButton from "@/components/ui/BurgerButton";
 import CallToAction from "@/components/ui/callToAction";
-import Pricing from "@/components/ui/pricing";
+import PricingCard from "@/components/ui/pricing";
 
-const page = () => {
+const Pricing = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const fadeInVariants = {
@@ -95,9 +95,9 @@ const page = () => {
           <CallToAction fadeInVariants={fadeInVariants} isInView={true} />
         </div>
       </motion.div>
-      <Pricing />
+      <PricingCard />
     </>
   );
 };
 
-export default page;
+export default Pricing;

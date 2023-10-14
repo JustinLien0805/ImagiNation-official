@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import BurgerButton from "@/components/ui/BurgerButton";
 import CallToAction from "@/components/ui/callToAction";
 
-const page = () => {
+const About = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const fadeInVariants = {
@@ -98,4 +98,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default About;
