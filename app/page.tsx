@@ -11,9 +11,11 @@ import CallToAction from "@/components/ui/callToAction";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { galleryData } from "@/lib/gallery";
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const heroRef = useRef(null);
   const isInView = useInView(heroRef, {
     once: true,
@@ -32,7 +34,12 @@ export default function Home() {
       <main className="flex reletive min-h-screen overflow-x-hidden flex-col items-center bg-[#fafafa]">
         <div className="flex drop-shadow-xl bg-[#fafafa] z-50 justify-between w-full fixed top-0 h-16 items-center p-4 border-b">
           <div className="flex items-center gap-4">
-            <h1 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] via-[#E0218C] to-[#1177F7]">
+            <h1
+              className="text-3xl cursor-pointer font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] via-[#E0218C] to-[#1177F7]"
+              onClick={() => {
+                router.push("/");
+              }}
+            >
               ImagicNation
             </h1>
             <nav className="sm:block hidden">
@@ -342,8 +349,9 @@ export default function Home() {
                 with textbook content?
               </AccordionTrigger>
               <AccordionContent className="text-lg">
-                Imagicnation&apos;s AI integrates content from three major publishers
-                into stories, ensuring they align with curriculum standards.
+                Imagicnation&apos;s AI integrates content from three major
+                publishers into stories, ensuring they align with curriculum
+                standards.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-5">

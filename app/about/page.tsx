@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import BurgerButton from "@/components/ui/BurgerButton";
@@ -7,7 +8,7 @@ import CallToAction from "@/components/ui/callToAction";
 
 const About = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const router = useRouter();
   const fadeInVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -20,7 +21,12 @@ const About = () => {
     <>
       <div className="flex drop-shadow-xl bg-[#fafafa] z-50 justify-between w-full fixed top-0 h-16 items-center p-4 border-b">
         <div className="flex items-center gap-4">
-          <h1 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] via-[#E0218C] to-[#1177F7]">
+        <h1
+            className="text-3xl cursor-pointer font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] via-[#E0218C] to-[#1177F7]"
+            onClick={() => {
+              router.push("/");
+            }}
+          >
             ImagicNation
           </h1>
           <nav className="sm:block hidden">
