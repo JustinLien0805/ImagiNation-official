@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={inter.className}>
+        <Analytics />
         <main className="flex reletive min-h-screen overflow-x-hidden flex-col items-center bg-[#fafafa]">
           {children}
           <footer className="flex flex-col items-center w-screen bg-[#f6e0c1] p-10 gap-4">
