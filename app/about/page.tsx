@@ -118,13 +118,14 @@ const About = () => {
         <div className="px-4">
           <div className="relative w-full place-self-center group aspect-[4/3] bg-[#f6e0c1] overflow-hidden rounded-lg">
             <Image
+              priority
               src="/about.webp"
               fill
               sizes="100%"
               placeholder="blur"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8oNjzHwAGBAKOvdbtWwAAAABJRU5ErkJggg=="
               alt="feature"
-              className="rounded-lg sm:group-hover:scale-110 transition ease-in duration-300 object-contain"
+              className="rounded-lg sm:group-hover:scale-110 transition ease-in duration-300 object-cover"
             />
           </div>
         </div>
