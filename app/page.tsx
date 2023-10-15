@@ -123,7 +123,7 @@ export default function Home() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInVariants}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.2 }}
         >
           Textbooks Reimagined:{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] to-[#F2BA34]">
@@ -143,7 +143,7 @@ export default function Home() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInVariants}
-          transition={{ delay: 0.1, duration: 0.4 }}
+          transition={{ delay: 0.1, duration: 0.2 }}
         >
           Revolutionizing primary education through interactive pixel art
           narratives.
@@ -154,7 +154,7 @@ export default function Home() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInVariants}
-          transition={{ delay: 0, duration: 0.4 }}
+          transition={{ delay: 0, duration: 0.2 }}
         >
           <video
             src="/hero.mp4"
@@ -162,12 +162,11 @@ export default function Home() {
             muted
             loop
             playsInline
-            preload="auto"
             className="rounded-lg"
           />
         </motion.div>
       </section>
-      <section className="min-h-screen flex flex-col items-center w-screen bg-[#fafafa] py-40 gap-8">
+      <section className="flex flex-col items-center bg-[#fafafa] py-40 gap-8">
         <div className="flex flex-col gap-4 items-center">
           <h2 className="text-4xl font-semibold px-2 tracking-wide text-center underline underline-offset-4 decoration-[#FD513F]">
             Powerful Features
@@ -179,13 +178,7 @@ export default function Home() {
         <div className="grid w-full p-4 max-w-7xl sm:grid-cols-2 gap-8">
           <div>
             <div className="relative w-full aspect-[4/3] drop-shadow-lg">
-              <Image
-                src="/feature_1.webp"
-                fill
-                sizes="100%"
-                alt="feature"
-                className="rounded-lg"
-              />
+              <img src="/feature_1.webp" alt="feature" className="rounded-lg" />
             </div>
             <h3 className="text-xl font-semibold tracking-tight pt-4">
               Engaging Learning Experience
@@ -198,13 +191,15 @@ export default function Home() {
           </div>
           <div>
             <div className="relative w-full aspect-[4/3] drop-shadow-lg">
-              <Image
+              {/* <Image
+                priority
                 src="/feature_2.webp"
                 fill
                 sizes="100%"
                 alt="feature"
                 className="rounded-lg"
-              />
+              /> */}
+              <img src="/feature_1.webp" alt="feature" className="rounded-lg" />
             </div>
             <h3 className="text-xl font-semibold tracking-tight pt-4">
               Instant Feedback
@@ -216,13 +211,15 @@ export default function Home() {
           </div>
           <div>
             <div className="relative w-full aspect-[4/3] drop-shadow-lg">
-              <Image
+              <img src="/feature_1.webp" alt="feature" className="rounded-lg" />
+              {/* <Image
+                priority
                 src="/feature_3.webp"
                 fill
                 sizes="100%"
                 alt="feature"
                 className="rounded-lg"
-              />
+              /> */}
             </div>
             <h3 className="text-xl font-semibold tracking-tight pt-4">
               Complete Curriculum Coverage
@@ -234,13 +231,15 @@ export default function Home() {
           </div>
           <div>
             <div className="relative w-full aspect-[4/3] drop-shadow-lg">
-              <Image
+              <img src="/feature_1.webp" alt="feature" className="rounded-lg" />
+              {/* <Image
+                priority
                 src="/feature_4.webp"
                 fill
                 sizes="100%"
                 alt="feature"
                 className="rounded-lg"
-              />
+              /> */}
             </div>
             <h3 className="text-xl font-semibold tracking-tight pt-4">
               Shareable Story Videos
@@ -253,13 +252,15 @@ export default function Home() {
           </div>
           <div>
             <div className="relative w-full aspect-[4/3] drop-shadow-lg">
-              <Image
+              <img src="/feature_1.webp" alt="feature" className="rounded-lg" />
+              {/* <Image
+                priority
                 src="/feature_5.webp"
                 fill
                 sizes="100%"
                 alt="feature"
                 className="rounded-lg"
-              />
+              /> */}
             </div>
             <h3 className="text-xl font-semibold tracking-tight pt-4">
               Ethic Story Section
@@ -272,7 +273,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen flex flex-col items-center w-screen bg-[#f6e0c1] py-40 gap-8">
+      <section className="flex flex-col items-center w-screen bg-[#f6e0c1] py-40 gap-8">
         <div className="flex flex-col gap-4 items-center">
           <h2 className="text-4xl font-semibold px-2 tracking-wide underline underline-offset-4 decoration-[#1177F7]">
             Gallery
@@ -296,15 +297,23 @@ export default function Home() {
                 </h3>
                 <p className="text-lg">{item.type}</p>
               </div>
-              <Image
-                src={item.url}
-                fill
-                sizes="100%"
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8oNjzHwAGBAKOvdbtWwAAAABJRU5ErkJggg=="
-                alt="feature"
-                className="rounded-lg sm:group-hover:scale-110 transition ease-in duration-300 object-cover"
-              />
+              <div className="relative w-full aspect-square drop-shadow-lg">
+                {/* <img
+                  src={item.url}
+                  alt="feature"
+                  className="rounded-lg sm:group-hover:scale-110 transition ease-in duration-300 object-cover"
+                /> */}
+                <Image
+                  priority
+                  src={item.url}
+                  fill
+                  sizes="100%"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8oNjzHwAGBAKOvdbtWwAAAABJRU5ErkJggg=="
+                  alt="feature"
+                  className="rounded-lg sm:group-hover:scale-110 transition ease-in duration-300 object-cover"
+                />
+              </div>
             </div>
           ))}
         </div>
