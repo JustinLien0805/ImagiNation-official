@@ -199,7 +199,7 @@ export default function Home() {
                 alt="feature"
                 className="rounded-lg"
               /> */}
-              <img src="/feature_1.webp" alt="feature" className="rounded-lg" />
+              <img src="/feature_2.webp" alt="feature" className="rounded-lg" />
             </div>
             <h3 className="text-xl font-semibold tracking-tight pt-4">
               Instant Feedback
@@ -211,7 +211,7 @@ export default function Home() {
           </div>
           <div>
             <div className="relative w-full aspect-[4/3] drop-shadow-lg">
-              <img src="/feature_1.webp" alt="feature" className="rounded-lg" />
+              <img src="/feature_3.webp" alt="feature" className="rounded-lg" />
               {/* <Image
                 priority
                 src="/feature_3.webp"
@@ -231,7 +231,7 @@ export default function Home() {
           </div>
           <div>
             <div className="relative w-full aspect-[4/3] drop-shadow-lg">
-              <img src="/feature_1.webp" alt="feature" className="rounded-lg" />
+              <img src="/feature_4.webp" alt="feature" className="rounded-lg" />
               {/* <Image
                 priority
                 src="/feature_4.webp"
@@ -252,7 +252,7 @@ export default function Home() {
           </div>
           <div>
             <div className="relative w-full aspect-[4/3] drop-shadow-lg">
-              <img src="/feature_1.webp" alt="feature" className="rounded-lg" />
+              <img src="/feature_5.webp" alt="feature" className="rounded-lg" />
               {/* <Image
                 priority
                 src="/feature_5.webp"
