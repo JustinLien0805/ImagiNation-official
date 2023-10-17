@@ -7,7 +7,7 @@ const BurgerButton = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-black transition ease transform duration-100`;
+  const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-black transition ease transform duration-300`;
   return (
     <button
       className="flex sm:hidden flex-col h-12 w-12 rounded justify-center items-center group"

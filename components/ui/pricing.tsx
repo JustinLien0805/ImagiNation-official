@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 export default function Component() {
   return (
-    <section className="mb-auto w-full bg-[#fafafa] flex items-center justify-center pb-12 pt-36 2xl:pt-72">
+    <section className="mb-auto w-full bg-[#fafafa] flex items-center justify-center py-36 2xl:pt-72">
       <div className="flex flex-col justify-center items-center px-4 md:px-6">
         <h2 className="text-4xl font-semibold px-2 tracking-wide underline text-center underline-offset-4 decoration-[#F2BA34]">
           Pricing
@@ -30,7 +30,7 @@ export default function Component() {
                   >
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  Generate up to 2 stories per day
+                  Generate up to 1 stories per day
                 </li>
                 <li className="flex items-center">
                   <svg

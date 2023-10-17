@@ -92,7 +92,7 @@ export default function Home() {
         initial="closed"
         animate={isOpen ? "open" : "closed"}
         variants={variants}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="border-b p-8 text-center text-xl font-medium w-full">
           <a
@@ -123,7 +123,7 @@ export default function Home() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInVariants}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.3 }}
         >
           Textbooks Reimagined:{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FD513F] to-[#F2BA34]">
@@ -143,7 +143,7 @@ export default function Home() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInVariants}
-          transition={{ delay: 0.1, duration: 0.2 }}
+          transition={{ delay: 0.1, duration: 0.3 }}
         >
           Revolutionizing primary education through interactive pixel art
           narratives.
@@ -154,7 +154,7 @@ export default function Home() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInVariants}
-          transition={{ delay: 0, duration: 0.2 }}
+          transition={{ delay: 0, duration: 0.3 }}
         >
           <video
             src="/hero.mp4"

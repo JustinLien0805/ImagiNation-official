@@ -82,7 +82,7 @@ const About = () => {
         initial="closed"
         animate={isOpen ? "open" : "closed"}
         variants={variants}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="border-b p-8 text-center text-xl font-medium w-full">
           <a
