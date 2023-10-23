@@ -1,14 +1,38 @@
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 export default function Component() {
+  const pricingRef = useRef(null);
+  const isInView = useInView(pricingRef, {
+    once: true,
+  });
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
   return (
-    <section className="mb-auto w-full bg-[#fafafa] flex items-center justify-center py-36 2xl:pt-72">
+    <section
+      className="mb-auto w-full bg-[#fafafa] flex items-center justify-center py-36 2xl:pt-72"
+      ref={pricingRef}
+    >
       <div className="flex flex-col justify-center items-center px-4 md:px-6">
-        <h2 className="text-4xl font-semibold px-2 tracking-wide underline text-center underline-offset-4 decoration-[#F2BA34]">
+        <motion.h2
+          className="text-4xl font-semibold px-2 tracking-wide underline text-center underline-offset-4 decoration-[#F2BA34]"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={fadeInVariants}
+          transition={{ duration: 0.3 }}
+        >
           Pricing
-        </h2>
+        </motion.h2>
         <div className="flex flex-col gap-6 mt-8 md:flex-row md:gap-8 max-w-7xl">
-          <div className="flex flex-col p-6 bg-white shadow-lg rounded-lg justify-between border border-gray-300 max-w-2xl">
+          <motion.div
+            className="flex flex-col p-6 bg-white shadow-lg rounded-lg justify-between border border-gray-300 max-w-2xl"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeInVariants}
+            transition={{ duration: 0.4 }}
+          >
             <div>
               <h3 className="text-2xl font-bold text-center">Free</h3>
               <div className="mt-4 text-center ">
@@ -95,8 +119,14 @@ export default function Component() {
                 </motion.button>
               </Button>
             </div>
-          </div>
-          <div className="relative flex flex-col p-6 bg-white shadow-lg rounded-lg dark:bg-zinc-850 justify-between border border-[#790FD0] max-w-2xl">
+          </motion.div>
+          <motion.div
+            className="relative flex flex-col p-6 bg-white shadow-lg rounded-lg dark:bg-zinc-850 justify-between border border-[#790FD0] max-w-2xl"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeInVariants}
+            transition={{ duration: 0.4 }}
+          >
             <div className="px-3 py-1 text-sm text-white bg-gradient-to-r from-[#E0218C] to-[#790FD0] rounded-full inline-block absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               Popular
             </div>
@@ -206,7 +236,7 @@ export default function Component() {
                 </motion.button>
               </Button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -12,6 +12,7 @@ const BurgerButton = ({
     <button
       className="flex sm:hidden flex-col h-12 w-12 rounded justify-center items-center group"
       onClick={() => setIsOpen(!isOpen)}
+      aria-label="menu button"
     >
       <div
         className={`${genericHamburgerLine} ${

@@ -143,7 +143,7 @@ export default function Home() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInVariants}
-          transition={{ delay: 0.1, duration: 0.3 }}
+          transition={{ duration: 0.4 }}
         >
           Revolutionizing primary education through interactive pixel art
           narratives.
@@ -154,7 +154,7 @@ export default function Home() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInVariants}
-          transition={{ delay: 0, duration: 0.3 }}
+          transition={{ duration: 0.3 }}
         >
           <video
             src="/hero.mp4"

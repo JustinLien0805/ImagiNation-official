@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import BurgerButton from "@/components/ui/BurgerButton";
 import CallToAction from "@/components/ui/callToAction";
@@ -10,7 +10,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const About = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const aboutRef = useRef(null);
   const router = useRouter();
+  const isInView = useInView(aboutRef, {
+    once: true,
+  });
   const fadeInVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -104,19 +108,40 @@ const About = () => {
           <CallToAction fadeInVariants={fadeInVariants} isInView={true} />
         </div>
       </motion.div>
-      <section className="mb-auto pt-36 pb-12 max-w-3xl flex flex-col gap-8">
+      <section
+        className="mb-auto pt-36 pb-12 max-w-3xl flex flex-col gap-8"
+        ref={aboutRef}
+      >
         <div className="flex flex-col gap-4 items-center justify-center">
-          <h2 className="text-4xl font-semibold px-4 tracking-wide underline underline-offset-4 decoration-[#1177F7]">
+          <motion.h2
+            className="text-4xl font-semibold px-4 tracking-wide underline underline-offset-4 decoration-[#1177F7]"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeInVariants}
+            transition={{ duration: 0.3 }}
+          >
             About Us
-          </h2>
-          <h3 className="text-xl font-normal tracking-wide text-[#363636] text-center px-4">
+          </motion.h2>
+          <motion.h3
+            className="text-xl font-normal tracking-wide text-[#363636] text-center px-4"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeInVariants}
+            transition={{ duration: 0.4 }}
+          >
             We are a team of 5 people from NCCU MIS who are passionate about the
             future of technology and how it can be used to improve the lives of
             people around the world.
-          </h3>
+          </motion.h3>
         </div>
         <div className="px-4">
-          <div className="relative w-full place-self-center group aspect-[4/3] bg-[#f6e0c1] overflow-hidden rounded-lg">
+          <motion.div
+            className="relative w-full place-self-center group aspect-[4/3] bg-[#f6e0c1] overflow-hidden rounded-lg"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={fadeInVariants}
+            transition={{ duration: 0.5 }}
+          >
             <Image
               priority
               src="/about.webp"
@@ -127,7 +152,7 @@ const About = () => {
               alt="feature"
               className="rounded-lg sm:group-hover:scale-110 transition ease-in duration-300 object-cover"
             />
-          </div>
+          </motion.div>
         </div>
         <div className="grid sm:grid-cols-2 grid-cols-1 gap-8 px-4">
           <div className="rounded-lg w-full border drop-shadow-lg bg-white py-4 px-8 flex items-center gap-6">
