@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-
+import { GeistSans } from "geist/font";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={inter.className}>
+      <body className={GeistSans.className}>
         <Analytics />
         <main className="flex reletive min-h-screen max-w-[100vw] overflow-x-hidden flex-col items-center bg-[#fafafa]">
           {children}
